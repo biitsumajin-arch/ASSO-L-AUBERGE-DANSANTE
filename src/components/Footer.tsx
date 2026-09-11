@@ -15,16 +15,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAuth }) => {
           
           {/* Brand & Mission */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#2D5A43] to-[#1E3A5F] flex items-center justify-center text-white text-lg font-serif-heading font-bold shadow-md border border-[#D4AF37]/40">
+            <div className="flex items-center gap-3.5">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#2D5A43] to-[#1E3A5F] flex items-center justify-center text-white text-xl font-serif-heading font-bold shadow-md border border-[#D4AF37]/50">
                 AD
               </div>
               <div>
-                <span className="font-serif-heading font-bold text-lg text-white block leading-none">
+                <span className="font-serif-heading font-extrabold text-2xl text-white block leading-none tracking-tight">
                   L'Auberge Dansante
                 </span>
-                <span className="text-[10px] text-[#D4AF37] uppercase tracking-wider font-semibold">
-                  Arts Martiaux Inclusifs
+                <span className="text-xs text-[#D4AF37] uppercase tracking-wider font-bold block mt-1">
+                  Arts Martiaux Inclusifs & Bienveillants
                 </span>
               </div>
             </div>

@@ -1,16 +1,13 @@
 import React from 'react';
-import { Sparkles, Calendar, ShieldCheck, Heart, Users, Award, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Sparkles, Calendar, Heart, Award, CheckCircle2, ArrowRight } from 'lucide-react';
+import { NavigationTab } from '../types';
 
 interface HeroSectionProps {
-  onNavigateToSchedule: () => void;
-  onNavigateToRegistration: () => void;
-  onNavigateToMission: () => void;
+  onNavigate: (tab: NavigationTab) => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
-  onNavigateToSchedule,
-  onNavigateToRegistration,
-  onNavigateToMission
+  onNavigate
 }) => {
   return (
     <section className="relative overflow-hidden pt-8 pb-16 md:py-20 bg-gradient-to-b from-[#FAF8F5] via-[#F4EFEA] to-[#FAF8F5]">
@@ -24,21 +21,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Text Content */}
           <div className="lg:col-span-7 space-y-6 text-left">
             
-            {/* Organic Badge */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#2D5A43]/10 border border-[#2D5A43]/20 text-[#2D5A43] text-xs font-semibold">
-              <span className="w-2 h-2 rounded-full bg-[#D4AF37]"></span>
-              <span>Association Sportive d’Utilité Sociale & Inclusion</span>
+            {/* Association Emblem Badge */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#2D5A43]/10 border border-[#2D5A43]/20 text-[#2D5A43] text-xs sm:text-sm font-bold shadow-2xs">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] animate-pulse"></span>
+              <span className="tracking-wide uppercase">Association L'Auberge Dansante • Arts Martiaux Inclusifs</span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-serif-heading text-[#1E293B] leading-[1.15] tracking-tight">
-              L'art martial comme <span className="text-[#2D5A43] italic">refuge</span>, le mouvement comme <span className="text-[#8C6D58]">renaissance</span>.
+            {/* Main Headline with Prominent Name */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-serif-heading text-[#1E293B] leading-[1.12] tracking-tight">
+              L'Auberge Dansante
+              <span className="block text-2xl sm:text-3xl lg:text-4xl font-normal text-[#2D5A43] italic mt-2">
+                L'art martial comme refuge, le mouvement comme renaissance.
+              </span>
             </h1>
 
             {/* Description */}
-            <p className="text-lg text-[#475569] leading-relaxed max-w-2xl font-normal">
-              <strong>L’Auberge Dansante</strong> accueille les enfants et adolescents en difficulté 
-              (hypersensibilité, TDAH, troubles anxieux, dyspraxie ou manque d'estime de soi) 
+            <p className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-2xl font-normal">
+              <strong>L’Auberge Dansante</strong> est une association sportive qui accueille les enfants et adolescents en difficulté 
+              (hypersensibilité, TDAH, troubles du spectre de l'autisme, dyspraxie ou manque d'estime de soi) 
               à travers une pratique douce, bienveillante et adaptée des arts martiaux traditionnels.
             </p>
 
@@ -66,8 +66,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="flex flex-wrap items-center gap-4 pt-4">
               <button
                 id="hero-cta-register"
-                onClick={onNavigateToRegistration}
-                className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#2D5A43] hover:bg-[#234936] text-white font-semibold text-base shadow-md hover:shadow-lg transition-all border border-[#1E3A5F]/20 cursor-pointer"
+                onClick={() => onNavigate('preregistration')}
+                className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#2D5A43] hover:bg-[#234936] text-white font-bold text-sm sm:text-base shadow-md hover:shadow-lg transition-all border border-[#1E3A5F]/20 cursor-pointer"
               >
                 <Sparkles className="w-5 h-5 text-amber-300" />
                 <span>Pré-inscrire mon enfant</span>
@@ -76,8 +76,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
               <button
                 id="hero-cta-schedule"
-                onClick={onNavigateToSchedule}
-                className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-[#FAF8F5] text-[#1E293B] font-semibold text-base border border-[#E2D9CE] shadow-xs hover:border-[#2D5A43]/40 transition-all cursor-pointer"
+                onClick={() => onNavigate('schedule')}
+                className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-[#FAF8F5] text-[#1E293B] font-bold text-sm sm:text-base border border-[#E2D9CE] shadow-xs hover:border-[#2D5A43]/40 transition-all cursor-pointer"
               >
                 <Calendar className="w-5 h-5 text-[#8C6D58]" />
                 <span>Consulter le planning des cours</span>
@@ -92,7 +92,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
               <div className="w-px h-4 bg-[#D1C7BA]"></div>
               <div className="flex items-center gap-2">
-                <span className="font-serif-heading font-bold text-lg text-[#2D5A43]">4</span>
+                <span className="font-serif-heading font-bold text-lg text-[#2D5A43]">6</span>
                 <span>Disciplines Martiales Complémentaires</span>
               </div>
               <div className="w-px h-4 bg-[#D1C7BA]"></div>
@@ -127,7 +127,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                         <span>Dojo Les Bambous & Salle Le Chêne</span>
                       </div>
                       <p className="font-serif-heading text-lg font-bold">Un sanctuaire de calme et de respect</p>
-                      <p className="text-xs text-slate-200">Tatami naturel, lumière tamisée, environnement non bruyant</p>
+                      <p className="text-xs text-slate-200">Tatami naturel, lumière tamisée, environnement apaisant</p>
                     </div>
                   </div>
 
