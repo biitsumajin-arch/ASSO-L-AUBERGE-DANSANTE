@@ -1,0 +1,6 @@
+{
+  "name": "L'Auberge Dansante - Arts Martiaux & Inclusion",
+  "description": "Application web pour L'Auberge Dansante, association sportive d'arts martiaux pour enfants en difficulté : inclusion par le sport, développement personnel et gestion des cours.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
